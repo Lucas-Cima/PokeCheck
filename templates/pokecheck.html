@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <style>
+        body {
+            padding: 20px 20px 20px 20px;
+        }
+        .card {
+            padding: 5px 5px 5px 5px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 30%;
+        }
+        .card-content {
+            padding: 2px 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+    <nav class="navbar navbar-fixed-top">
+        <div class="active"><a href="/Home">Home</a></div>
+        <a href="/Pokecheck">Pokedex Checklist</a>
+    </nav>
+    <body>
+    <center><h1>Pokecheck!</h1></center>
+            {% for pokecheck in pokechecks %}
+            <section class="card">
+                <div class="card-content">
+                <div class="Heading">
+                    <span class="DexNum">{{pokecheck.DexNum}}</span>
+                    <span class="Name">{{pokecheck.Name}}</span>
+                    <span class="Form">{{pokecheck.Form}}</span>
+                    <input type="checkbox" class="Caught" name="Caught" value=true method="POST" action="/pokecheck">
+                    <label for="Caught">Caught</label><br>
+                </div>
+                </div>
+                </section>
+            {% endfor %}
+</html>
